@@ -36,9 +36,14 @@ function fillContentWithCategory(theCategory,start){
 		}
 		chosenCatLevel = parseInt(chosenCatLevel);
 		if(chosenCatLevel == people.length){
-			alert(theCategory + " category completed, try other categories");
-			window.location.href = "choose.html";
-			return;
+			var startAgain = confirm(cat + " category completed, Do you want to start again?");
+				if(startAgain){
+					localStorage.removeItem(cat);
+					window.location.href = "index.html?"+cat;
+				   }else{
+					   window.location.href = "choose.html";
+					   return;
+				   }
 		}
 	//check next person with same category
 	if(people[chosenCatLevel].category == theCategory){
@@ -62,9 +67,14 @@ function fillContentWithCategory(theCategory,start){
 			var count = people.length - 1;
 			var finalIndex = count - reversedPeople;
 			 if(finalIndex < chosenCatLevel){
-				alert(theCategory + " category completed, try other categories");
-				window.location.href = "choose.html";
-				return;
+				var startAgain = confirm(cat + " category completed, Do you want to start again?");
+				if(startAgain){
+					localStorage.removeItem(cat);
+					window.location.href = "index.html?"+cat;
+				   }else{
+					   window.location.href = "choose.html";
+					   return;
+				   }
 			}
 			fillContentWithCategory(chooseCategory,false);
 		}
@@ -104,9 +114,14 @@ function fillContent(theCategory){
         $(".buttonHolder").eq(0).removeClass("animated animNorm bounceInDown");
         if(theCategory == "" || theCategory == undefined){
 			if(level == people.length){
-				alert("Game finished, check later for update");
-				window.location.href = "choose.html";
-				return;
+				var startAgain = confirm("Game completed, Do you want to start again?");
+				if(startAgain){
+					localStorage.removeItem(level);
+					window.location.href = "index.html";
+				   }else{
+					   window.location.href = "choose.html";
+					   return;
+				   }
 			}else{
 				fillContentAll();
 				}
