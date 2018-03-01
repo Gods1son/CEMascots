@@ -91,9 +91,19 @@ function fillContentAll(){
 		if(level == undefined || level == null){
 			level = 0;
 			localStorage.setItem(levelName,level);
-		}
-		
+		}	
 		level = parseInt(level);
+	if(level == people.length){
+		var startAgain = confirm("Game completed, Do you want to start again?");
+			if(startAgain){
+				localStorage.removeItem(levelName);
+				localStorage.removeItem(levelName + "Total");
+				window.location.href = "index.html";
+			}else{
+				window.location.href = "choose.html";
+				return;
+				}
+	}
      //check if there is category
     var category = people[level].category;
     var imagePath = "Images/" + category + "/" + category + people[level].image;
@@ -115,19 +125,7 @@ function fillContent(theCategory){
         $("#theImage").removeClass("animated animNorm zoomIn");
         $(".buttonHolder").eq(0).removeClass("animated animNorm bounceInDown");
         if(theCategory == "" || theCategory == undefined){
-			if(level == people.length){
-				var startAgain = confirm("Game completed, Do you want to start again?");
-				if(startAgain){
-					localStorage.removeItem(levelName);
-					localStorage.removeItem(levelName + "Total");
-					window.location.href = "index.html";
-				   }else{
-					   window.location.href = "choose.html";
-					   return;
-				   }
-			}else{
-				fillContentAll();
-				}
+		fillContentAll();
         }else{
             fillContentWithCategory(theCategory,true);
         }
