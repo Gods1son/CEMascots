@@ -6,12 +6,12 @@
         xmlns:gap="http://phonegap.com/ns/1.0">
     <name>CE Mascots</name>
     <description>
-        How well do you know Christ Emsbassy citizens
+        How well do you know Christ Embassy citizens
     </description>
     <author email="tolulopeibiyode@gmail.com" href="#">
         Gods1son
     </author>
-    <content src="index.html" />
+    <content src="choose.html" />
     <icon height="48" src="Images/android-icon-48x48.jpg" width="48"/>
     <icon height="48" platform="android" src="Images/android-icon-48x48.jpg" width="48"/>
     <icon height="48" platform="ios" src="Images/android-icon-48x48.jpg" width="48"/>
