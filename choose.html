@@ -57,6 +57,23 @@
     	var allLevels = people.length;
         function loadGame(button){
         	var cat = $(button).attr("data-target");
+		if(cat == "all"){
+			cat = "MascotsLevel";
+			var chosenCatLevel = localStorage.getItem(cat);
+			if(chosenCatLevel != null){
+				if(chosenCatLevel == people.length){
+					var startAgain = confirm("Game completed, Do you want to start again?");
+				if(startAgain){
+					localStorage.removeItem("MascotsLevel");
+					localStorage.removeItem("MascotsLevel" + "Total");
+					window.location.href = "index.html";
+				   }else{
+					   return;
+				   }
+				}
+			}
+			window.location.href = "index.html";
+		}
 			var chosenCatLevel = localStorage.getItem(cat);
 			if(chosenCatLevel != null){
 				var reversedPeople = parseInt(people.slice().reverse().findIndex(b => b.category === cat));
