@@ -37,6 +37,7 @@ function fillContentWithCategory(theCategory,start){
 		chosenCatLevel = parseInt(chosenCatLevel);
 		if(chosenCatLevel == people.length){
 			alert(theCategory + " category completed, try other categories");
+			window.location.href = "choose.html";
 			return;
 		}
 	//check next person with same category
