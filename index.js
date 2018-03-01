@@ -36,10 +36,10 @@ function fillContentWithCategory(theCategory,start){
 		}
 		chosenCatLevel = parseInt(chosenCatLevel);
 		if(chosenCatLevel == people.length){
-			var startAgain = confirm(cat + " category completed, Do you want to start again?");
+			var startAgain = confirm(theCategory + " category completed, Do you want to start again?");
 				if(startAgain){
-					localStorage.removeItem(cat);
-					window.location.href = "index.html?"+cat;
+					localStorage.removeItem(theCategory);
+					window.location.href = "index.html?"+theCategory;
 				   }else{
 					   window.location.href = "choose.html";
 					   return;
@@ -67,10 +67,10 @@ function fillContentWithCategory(theCategory,start){
 			var count = people.length - 1;
 			var finalIndex = count - reversedPeople;
 			 if(finalIndex < chosenCatLevel){
-				var startAgain = confirm(cat + " category completed, Do you want to start again?");
+				var startAgain = confirm(theCategory + " category completed, Do you want to start again?");
 				if(startAgain){
-					localStorage.removeItem(cat);
-					window.location.href = "index.html?"+cat;
+					localStorage.removeItem(theCategory);
+					window.location.href = "index.html?"+theCategory;
 				   }else{
 					   window.location.href = "choose.html";
 					   return;
