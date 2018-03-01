@@ -66,6 +66,7 @@
 				var startAgain = confirm(cat + " category completed, Do you want to start again?");
 				if(startAgain){
 					localStorage.removeItem(cat);
+					localStorage.removeItem(cat + "Total");
 					window.location.href = "index.html?"+cat;
 				     }else{return;}
 				}
