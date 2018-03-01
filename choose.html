@@ -1,0 +1,109 @@
+<!DOCTYPE>
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="people.js"></script>
+    <link rel="stylesheet" href="index.css">
+	<style>
+	.level
+	{
+		border: 1px solid black;
+		width: 95%;
+		margin-left: 2%;	
+	}
+	.levelReader
+	{
+		background: green;
+		height: 100%;	
+	}
+	</style>
+</head>
+<body>
+    <div class="buttonHolder2">
+        <button type="button" onclick="loadGame(this)" data-target="all">
+			<div>
+				<span class="levelName">All Levels</span>
+				<div class="level">
+					<div class="levelReader" id="MascotsLevelTotal"></div>
+				</div>
+				<div class="showScore" id="MascotsLevelTotalScore"></div>
+			</div>
+		</button>
+        <button type="button" onclick="loadGame(this)" data-target="CEC">
+			<div>
+				<span class="levelName">CEC Members</span>
+				<div class="level">
+					<div class="levelReader" id="CECTotal"></div>
+				</div>
+				<div class="showScore" id="CECTotalScore"></div>
+			</div>
+		</button>
+        <button type="button" onclick="loadGame(this)" data-target="Musicians">
+			<div>
+				<span class="levelName">Musicians</span>
+				<div class="level">
+					<div class="levelReader" id="MusiciansTotal"></div>
+				</div>
+				<div class="showScore" id="MusiciansTotalScore"></div>
+			</div>
+		</button>  
+    </div>
+    <script>
+    	var CECTotalNumber = 0;
+    	var MusiciansTotalNumber = 0;
+    	var allLevels = people.length;
+        function loadGame(button){
+        	var cat = $(button).attr("data-target");
+			var chosenCatLevel = localStorage.getItem(cat);
+			if(chosenCatLevel != null){
+				var reversedPeople = parseInt(people.slice().reverse().findIndex(b => b.category === cat));
+				var count = people.length - 1;
+				var finalIndex = count - reversedPeople;
+			 if(finalIndex < chosenCatLevel){
+				alert(cat + " category completed, try other categories");
+				return;
+				}
+			}
+            window.location.href = "index.html?"+cat;
+           }
+           $(document).ready(function () {
+           	countNumber();
+           	var AllLevels = checkValue("MascotsLevelTotal");
+           	var MusiciansLevels = checkValue("MusiciansTotal");
+           	var CECLevels = checkValue("CECTotal");
+
+           });
+
+			function checkValue(value) {
+				var result = localStorage.getItem(value);
+				var percent;
+				var grandTotal;
+				result = result == null ? 0 : parseInt(result);
+				if(value == "MascotsLevelTotal") {				
+						percent = (result / parseInt(allLevels));
+						grandTotal = allLevels;
+				}else if(value == "CECTotal"){				
+						percent = (result / parseInt(CECTotalNumber));
+						grandTotal = CECTotalNumber;
+				}else if(value == "MusiciansTotal"){
+						percent = (result / parseInt(MusiciansTotalNumber));
+						grandTotal = MusiciansTotalNumber;
+					}
+					percent = (percent * 100).toFixed(0);
+				$("#" + value).css("width", percent + "%");
+				$("#" + value + "Score").html(result + " / " + grandTotal);
+		}
+
+			function countNumber() {				
+				for (var i = 0; i < people.length; i++) {
+					if (people[i].category == "CEC") {
+						CECTotalNumber += 1;
+					}
+					if (people[i].category == "Musicians") {
+						MusiciansTotalNumber += 1;
+					}
+				}
+			}
+	</script>
+</body>
+</html>
