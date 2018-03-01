@@ -39,6 +39,7 @@ function fillContentWithCategory(theCategory,start){
 			var startAgain = confirm(theCategory + " category completed, Do you want to start again?");
 				if(startAgain){
 					localStorage.removeItem(theCategory);
+					localStorage.removeItem(theCategory + "Total");
 					window.location.href = "index.html?"+theCategory;
 				   }else{
 					   window.location.href = "choose.html";
@@ -70,6 +71,7 @@ function fillContentWithCategory(theCategory,start){
 				var startAgain = confirm(theCategory + " category completed, Do you want to start again?");
 				if(startAgain){
 					localStorage.removeItem(theCategory);
+					localStorage.removeItem(theCategory + "Total");
 					window.location.href = "index.html?"+theCategory;
 				   }else{
 					   window.location.href = "choose.html";
@@ -116,7 +118,8 @@ function fillContent(theCategory){
 			if(level == people.length){
 				var startAgain = confirm("Game completed, Do you want to start again?");
 				if(startAgain){
-					localStorage.removeItem(level);
+					localStorage.removeItem(levelName);
+					localStorage.removeItem(levelName + "Total");
 					window.location.href = "index.html";
 				   }else{
 					   window.location.href = "choose.html";
