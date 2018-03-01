@@ -60,8 +60,11 @@
 				var count = people.length - 1;
 				var finalIndex = count - reversedPeople;
 			 if(finalIndex < chosenCatLevel){
-				alert(cat + " category completed, try other categories");
-				return;
+				var startAgain = confirm(cat + " category completed, Do you want to start again?");
+				if(startAgain){
+					localStorage.removeItem(cat);
+					window.location.href = "index.html?"+cat;
+				     }else{return;}
 				}
 			}
             window.location.href = "index.html?"+cat;
