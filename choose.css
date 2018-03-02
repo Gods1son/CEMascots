@@ -1,0 +1,49 @@
+*{
+	margin:0px;
+	padding:0px;	
+}
+.categ
+{
+	color: darkturquoise;
+    font-size: 1.3em;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 10px;
+}
+
+.level
+	{
+		border: 1px solid black;
+		width: 95%;
+		margin-left: 2%;
+        height: 5%;
+	}
+	.levelReader
+	{
+		height: 100%;	
+	}
+	body{
+		overflow-y: scroll;		
+        font-size: 0.9em;
+        background-color:Black;
+	}
+
+.buttonHolder2 button{
+    display: block;
+    border: 2px groove darkturquoise;
+    padding: 5px 0px;
+	width:95%;
+    border-radius: 5px;
+    font-size: 1.2em;
+    margin: 15px 0px;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-family: Verdana, Geneva, sans-serif;
+}
+
+.buttonHolder2{
+    width:95vw;
+    margin: 20px auto;
+    text-align: -webkit-center;
+}
+ 
