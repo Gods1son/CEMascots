@@ -112,7 +112,7 @@ var people = [
         "category":"CEC"
     },
 	   {
-        "image":"11.jpg",
+        "image":"11.jpeg",
         "options":["REV TOM AMEKHIANAN","PASTOR RAY OKOCHA","EVANGELIST EDDY OWASE","PASTOR TOM OBIAZI","#PASTOR KAYODE ADESINA"],
         "category":"CEC"
        },{
