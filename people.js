@@ -90,7 +90,7 @@ var people = [
        },
 	{
         "image":"12.jpg",
-        "options":["REV TOM AMEKHIANAN","PASTOR RAY OKOCHA","EVANGELIST EDDY OWASE","PASTOR TOM OBIAZI","#PASTOR KEN OYAKHILOME"],
+        "options":["REV TOM AMEKHIANAN","PASTOR RAY OKOCHA","EVANGELIST EDDY OWASE","PASTOR TOM OBIAZI","#REV KEN OYAKHILOME"],
         "category":"CEC"
        },
     {
@@ -104,7 +104,7 @@ var people = [
     }, 
 	   {
        	"image": "2.jpg",
-       	"options": ["#JAHDIEL", "PASTOR AMBROSE ISESELE", "EVANGELIST EDDY OWASE", "PASTOR TOM OBIAZI", "PASTOR KAYODE ADESINA"],
+       	"options": ["#JAHDIEL", "SINACH", "ADA", "SOPHIA", "EBEN"],
        	"category": "Musicians"
        },{
         "image":"8.jpg",
@@ -122,7 +122,12 @@ var people = [
     },
 	{
        	"image": "3.jpg",
-       	"options": ["#EBEN", "PASTOR AMBROSE ISESELE", "EVANGELIST EDDY OWASE", "PASTOR TOM OBIAZI", "PASTOR KAYODE ADESINA"],
+       	"options": ["ISRAEL STRONG", "JOE PRAISE", "FRANK EDWARDS", "PEE YUU", "#EBEN"],
+       	"category": "Musicians"
+       },
+	{
+       	"image": "12.jpg",
+       	"options": ["ISRAEL STRONG", "#JOE PRAISE", "FRANK EDWARDS", "PEE YUU", "EBEN"],
        	"category": "Musicians"
        }
 ];
