@@ -1,0 +1,35 @@
+.level
+	{
+		border: 1px solid black;
+		width: 95%;
+		margin-left: 2%;
+        height: 5%;
+	}
+	.levelReader
+	{
+		background: green;
+		height: 100%;	
+	}
+	body{
+		overflow-y: scroll;		
+        font-size: 1.7em;
+	}
+
+.buttonHolder2 button{
+    display: block;
+    border: 2px groove grey;
+	width:95%;
+    border-radius: 5px;
+    font-size: 1.5em;
+    margin: 15px 0px;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-family: Verdana, Geneva, sans-serif;
+}
+
+.buttonHolder2{
+    width:95vw;
+    margin: 20px auto;
+    text-align: -webkit-center;
+}
+ 
