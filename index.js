@@ -222,9 +222,9 @@ function checkAnswer(button, e) {
         
     }else{
           	//$(button).addClass("incorrect");
-          	$(button).addClass("animated animQuick shake");
+          	$(button).addClass("animated animQuick hinge");
           	wrong += 1;
-        setTimeout(function(){ $(button).removeClass("animated animQuick shake");},animDelay);
+        //setTimeout(function(){ $(button).removeClass("animated animQuick shake");},animDelay);
     }
 }
 
