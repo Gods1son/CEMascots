@@ -12,7 +12,7 @@
 	}
 	body{
 		overflow-y: scroll;		
-        font-size: 1.7em;
+        font-size: 1.2em;
 	}
 
 .buttonHolder2 button{
@@ -20,7 +20,7 @@
     border: 2px groove grey;
 	width:95%;
     border-radius: 5px;
-    font-size: 1.5em;
+    font-size: 1.2em;
     margin: 15px 0px;
     text-transform: uppercase;
     cursor: pointer;
