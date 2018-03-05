@@ -39,10 +39,21 @@
                 <div class="showScore" id="MusiciansTotalGrade"></div>
 			</div>
 		</button>  
+	<button type="button" onclick="loadGame(this)" data-target="themeofyear">
+			<div>
+				<span class="levelName">Theme Of The Year</span>
+				<div class="level">
+					<div class="levelReader" id="themeofyearTotal"></div>
+				</div>
+				<div class="showScore" id="themeofyearTotalScore"></div>
+                <div class="showScore" id="themeofyearTotalGrade"></div>
+			</div>
+		</button> 
     </div>
     <script>
     	var CECTotalNumber = 0;
     	var MusiciansTotalNumber = 0;
+	var themeofyearTotalNumber = 0; 
     	var allLevels = people.length;
         var highest = 4;
         
@@ -90,6 +101,7 @@
            	var AllLevels = checkValue("MascotsLevelTotal");
            	var MusiciansLevels = checkValue("MusiciansTotal");
            	var CECLevels = checkValue("CECTotal");
+		var themeofyearLevels = checkValue("themeofyearTotal");
 
            });
 
@@ -109,7 +121,10 @@
 				}else if(value == "MusiciansTotal"){
 						percent = (result / parseInt(MusiciansTotalNumber));
 						grandTotal = MusiciansTotalNumber;
-					}
+				}else if(value == "themeofyearTotal"){
+						percent = (result / parseInt(themeofyearTotalNumber));
+						grandTotal = themeofyearTotalNumber;
+				}
 					percent = (percent * 100).toFixed(0);
 					var color;
 					if(percent <= 30){
@@ -133,6 +148,9 @@
 					}
 					if (people[i].category == "Musicians") {
 						MusiciansTotalNumber += 1;
+					}
+					if (people[i].category == "themeofyear") {
+						themeofyearTotalNumber += 1;
 					}
 				}
 			}
