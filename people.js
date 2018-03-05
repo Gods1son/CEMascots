@@ -21,6 +21,16 @@ var people = [
        	"options": ["#CHRIS SHALOM", "JOE PRAISE", "FRANK EDWARDS", "PEE YUU", "BUCHI"],
        	"category": "Musicians"
        },
+	   {
+	   	"image": "11.png",
+	   	"options": ["YEAR 2007", "#YEAR 2008", "YEAR 2009", "YEAR 2010", "YEAR 2011"],
+	   	"category": "themeofyear"
+	   },
+	   {
+	   	"image": "6.png",
+	   	"options": ["YEAR 2002", "#YEAR 2003", "YEAR 2004", "YEAR 2005", "YEAR 2006"],
+	   	"category": "themeofyear"
+	   },
     {
         "image":"4.jpg",
         "options":["#PASTOR LINDA OKOCHA","PASTOR JOY AMEKHIANAN","PASTOR MARY OWASE","PASTOR SARAH OBIAZI","PASTOR OSE OYAKHILOME"],
@@ -30,6 +40,16 @@ var people = [
        	"options": ["#MARTIN PK", "JOE PRAISE", "FRANK EDWARDS", "PEE YUU", "BUCHI"],
        	"category": "Musicians"
        },
+	   {
+	   	"image": "10.png",
+	   	"options": ["#YEAR 2007", "YEAR 2008", "YEAR 2009", "YEAR 2010", "YEAR 2011"],
+	   	"category": "themeofyear"
+	   },
+	   {
+	   	"image": "12.png",
+	   	"options": ["YEAR 2007", "YEAR 2008", "#YEAR 2009", "YEAR 2010", "YEAR 2011"],
+	   	"category": "themeofyear"
+	   },
     {
         "image":"5.jpg",
         "options":["REV TOM AMEKHIANAN","PASTOR RAY OKOCHA","#EVANGELIST EDDY OWASE","PASTOR TOM OBIAZI","PASTOR KAYODE ADESINA"],
@@ -56,7 +76,13 @@ var people = [
         "image":"7.jpg",
         "options":["REV TOM AMEKHIANAN", "#PASTOR AMBROSE ISESELE", "EVANGELIST EDDY OWASE", "PASTOR TOM OBIAZI", "PASTOR KAYODE ADESINA"],
         "category":"CEC"
-    },{
+    },
+	   {
+	   	"image": "14.png",
+	   	"options": ["YEAR 2007", "YEAR 2008", "YEAR 2009", "YEAR 2010", "#YEAR 2011"],
+	   	"category": "themeofyear"
+	   },
+	{
        	"image": "6.jpg",
        	"options": ["MARTIN PK", "JOE PRAISE", "FRANK EDWARDS", "#PEE YUU", "BUCHI"],
        	"category": "Musicians"
@@ -76,12 +102,12 @@ var people = [
        	"category": "Musicians"
        },
 	{
-	   "image": "8.jpg",
+	   "image": "8.png",
 	   "options": ["YEAR 2002", "YEAR 2003", "YEAR 2004", "#YEAR 2005", "YEAR 2006"],
 	   "category": "themeofyear"
 	   },
 	   {
-	   	"image": "19.jpg",
+	   	"image": "19.png",
 	   	"options": ["YEAR 2015", "#YEAR 2016", "YEAR 2017", "YEAR 2018", "YEAR 2011"],
 	   	"category": "themeofyear"
 	   },
@@ -93,13 +119,19 @@ var people = [
         "image":"16.jpg",
         "options":["REV TOM AMEKHIANAN","PASTOR LANRE ALABI","EVANGELIST EDDY OWASE","PASTOR TOM OBIAZI","#PASTOR BIODUN LAWAL"],
         "category":"CEC"
-       },{
+       },
+	   {
+	   	"image": "4.png",
+	   	"options": ["YEAR 1998", "YEAR 1999", "YEAR 2000", "#YEAR 2001", "YEAR 2002"],
+	   	"category": "themeofyear"
+	   },
+	{
         "image":"17.jpg",
         "options":["PASTOR LINDA OKOCHA","PASTOR JOY AMEKHIANAN","#PASTOR CHIAMAKA","PASTOR SARAH OBIAZI","PASTOR OSE OYAKHILOME"],
         "category":"CEC"
        },
 	{
-	   "image": "1.jpg",
+	   "image": "1.png",
 	   "options": ["#YEAR 1998", "YEAR 1999", "YEAR 2000", "YEAR 2001", "YEAR 2002"],
 	   "category": "themeofyear"
 	  },
@@ -109,7 +141,7 @@ var people = [
         "category":"CEC"
        },
 	{
-	   "image": "9.jpg",
+	   "image": "9.png",
 	   "options": ["YEAR 2002", "YEAR 2003", "YEAR 2004", "YEAR 2005", "#YEAR 2006"],
 	   "category": "themeofyear"
 	},
@@ -119,12 +151,12 @@ var people = [
         "category":"CEC"
        },
 	 {
-	   "image": "17.jpg",
+	   "image": "17.png",
 	   "options": ["YEAR 2011", "YEAR 2012", "YEAR 2013", "#YEAR 2014", "YEAR 2015"],
 	   "category": "themeofyear"
 	   },
 	   {
-	   "image": "18.jpg",
+	   "image": "18.png",
 	   "options": ["YEAR 2011", "YEAR 2012", "YEAR 2013", "YEAR 2014", "#YEAR 2015"],
 	   "category": "themeofyear"
 	   },
@@ -134,6 +166,16 @@ var people = [
         "category":"CEC"
     }, 
 	   {
+	   	   	"image": "16.png",
+	   	   	"options": ["YEAR 2011", "YEAR 2012", "#YEAR 2013", "YEAR 2014", "YEAR 2015"],
+	   	   	"category": "themeofyear"
+	   },
+	   {
+	   	"image": "5.png",
+	   	"options": ["YEAR 1998", "YEAR 1999", "YEAR 2000", "YEAR 2001", "#YEAR 2002"],
+	   	"category": "themeofyear"
+	   },
+	   {
        	"image": "2.jpg",
        	"options": ["#JAHDIEL", "SINACH", "ADA", "SOPHIA", "EBEN"],
        	"category": "Musicians"
@@ -142,11 +184,22 @@ var people = [
         "options":["PASTOR LINDA OKOCHA","PASTOR JOY AMEKHIANAN","#PASTOR DUPE ISESELE","PASTOR SARAH OBIAZI","PASTOR OSE OYAKHILOME"],
         "category":"CEC"
     },
+	{
+	   "image": "15.png",
+	   "options": ["YEAR 2011", "#YEAR 2012", "YEAR 2013", "YEAR 2014", "YEAR 2015"],
+	   "category": "themeofyear"
+	   },
 	   {
         "image":"11.jpeg",
         "options":["REV TOM AMEKHIANAN","PASTOR RAY OKOCHA","EVANGELIST EDDY OWASE","PASTOR TOM OBIAZI","#PASTOR KAYODE ADESINA"],
         "category":"CEC"
-       },{
+       },
+	   {
+	   	"image": "2.png",
+	   	"options": ["YEAR 1998", "#YEAR 1999", "YEAR 2000", "YEAR 2001", "YEAR 2002"],
+	   	"category": "themeofyear"
+	   },
+	{
         "image":"14.jpg",
         "options":["PASTOR LINDA OKOCHA","PASTOR JOY AMEKHIANAN","#PASTOR DEOLA PHILLIPS","PASTOR SARAH OBIAZI","PASTOR OSE OYAKHILOME"],
         "category":"CEC"
@@ -162,78 +215,27 @@ var people = [
        	"category": "Musicians"
        },
 	   {
-	   	"image": "7.jpg",
+	   	"image": "7.png",
 	   	"options": ["YEAR 2002", "YEAR 2003", "#YEAR 2004", "YEAR 2005", "YEAR 2006"],
 	   	"category": "themeofyear"
 	   },
 	   {
-	   	"image": "2.jpg",
-	   	"options": ["YEAR 1998", "#YEAR 1999", "YEAR 2000", "YEAR 2001", "YEAR 2002"],
-	   	"category": "themeofyear"
-	   },
-	   {
-	   	"image": "20.jpg",
+	   	"image": "20.png",
 	   	"options": ["YEAR 2015", "YEAR 2016", "#YEAR 2017", "YEAR 2018", "YEAR 2011"],
 	   	"category": "themeofyear"
 	   },
 	   {
-	   	"image": "14.jpg",
-	   	"options": ["YEAR 2007", "YEAR 2008", "YEAR 2009", "YEAR 2010", "#YEAR 2011"],
-	   	"category": "themeofyear"
-	   },
-	   {
-	   	"image": "3.jpg",
+	   	"image": "3.png",
 	   	"options": ["YEAR 1998", "YEAR 1999", "#YEAR 2000", "YEAR 2001", "YEAR 2002"],
 	   	"category": "themeofyear"
 	   },
 	   {
-	   	"image": "4.jpg",
-	   	"options": ["YEAR 1998", "YEAR 1999", "YEAR 2000", "#YEAR 2001", "YEAR 2002"],
-	   	"category": "themeofyear"
-	   },
-	   {
-	   	   	"image": "16.jpg",
-	   	   	"options": ["YEAR 2011", "YEAR 2012", "#YEAR 2013", "YEAR 2014", "YEAR 2015"],
-	   	   	"category": "themeofyear"
-	   },
-	   {
-	   	"image": "5.jpg",
-	   	"options": ["YEAR 1998", "YEAR 1999", "YEAR 2000", "YEAR 2001", "#YEAR 2002"],
-	   	"category": "themeofyear"
-	   },
-	   {
-	   	"image": "11.jpg",
-	   	"options": ["YEAR 2007", "#YEAR 2008", "YEAR 2009", "YEAR 2010", "YEAR 2011"],
-	   	"category": "themeofyear"
-	   },
-	   {
-	   	"image": "6.jpg",
-	   	"options": ["YEAR 2002", "#YEAR 2003", "YEAR 2004", "YEAR 2005", "YEAR 2006"],
-	   	"category": "themeofyear"
-	   },
-	   {
-	   	"image": "10.jpg",
-	   	"options": ["#YEAR 2007", "YEAR 2008", "YEAR 2009", "YEAR 2010", "YEAR 2011"],
-	   	"category": "themeofyear"
-	   },
-	   {
-	   	"image": "12.jpg",
-	   	"options": ["YEAR 2007", "YEAR 2008", "#YEAR 2009", "YEAR 2010", "YEAR 2011"],
-	   	"category": "themeofyear"
-	   },
-	   {
-	   	"image": "13.jpg",
+	   	"image": "13.png",
 	   	"options": ["YEAR 2007", "YEAR 2008", "YEAR 2009", "#YEAR 2010", "YEAR 2011"],
 	   	"category": "themeofyear"
 	   },
-	   {
-	   	"image": "15.jpg",
-	   	"options": ["YEAR 2011", "#YEAR 2012", "YEAR 2013", "YEAR 2014", "YEAR 2015"],
-	   	"category": "themeofyear"
-	   },
-
 		{
-	 	"image": "21.jpg",
+	 	"image": "21.png",
 	 	"options": ["YEAR 2015", "YEAR 2016", "YEAR 2017", "#YEAR 2018", "YEAR 2011"],
 	 	"category": "themeofyear"
 		}
