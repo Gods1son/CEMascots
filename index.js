@@ -11,13 +11,35 @@ var chosenCatLevel;
 var finalIndex;
 var soundStatus = true;
 
-function closeApp() {
-	try{
-	navigator.app.exitApp();
-	}catch(err){
-	window.close();
-	}
-}
+function closeAppClose(option) {
+    		if (option == 1 || option == true) {
+    			try {
+    				navigator.app.exitApp();
+    			} catch (err) {
+    				window.close();
+    			}
+    		} 
+    	}
+
+    	function closeApp() {
+    		try {
+    			navigator.notification.confirm(
+			"Are you sure you want to close the app?", // message
+			function (buttonIndex) {
+				closeAppClose(buttonIndex);
+			},            // callback to invoke with index of button pressed
+			'Close App?',           // title
+			['Yes', 'No']     // buttonLabels
+		);
+    		} catch (err) {
+    			var startAgain = confirm("Are you sure you want to close the app?");
+    			if (startAgain) {
+    				closeAppClose(1);
+    			} else {
+    				closeAppClose(7);
+    			}
+    		}
+    	}
 
 function resetLevelDialog(level){
 	try {
