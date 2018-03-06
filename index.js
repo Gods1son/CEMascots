@@ -287,7 +287,8 @@ function fillContent(theCategory){
 function createButton(text){
     var button = document.createElement("BUTTON");
     button.setAttribute("type","button");
-    button.onclick = function(){checkAnswer(this);}
+    $(button).on("click", function () { checkAnswer(this); });
+    //button.onclick = function(){checkAnswer(this);}
     if(text.indexOf("#") > -1){
         button.setAttribute("data-correct","true");
         text = text.replace("#","");
@@ -305,6 +306,7 @@ function checkAnswer(button) {
 	//e.preventDefault();
     var right = $(button).attr("data-correct");
     if(right == "true"){
+	$(button).off("click");
     	$(button).addClass("correct");
     	if (soundStatus == true) { playAudio("correctAudio"); }
 		//determine if its all level or everything
