@@ -16,4 +16,7 @@
     <icon height="48" platform="android" src="Images/android-icon-48x48.jpg" width="48"/>
     <icon height="48" platform="ios" src="Images/android-icon-48x48.jpg" width="48"/>
     <icon height="48" platform="windows" src="Images/android-icon-48x48.jpg" width="48"/>
+    <preference name="orientation" value="portrait"/>
+    <plugin name="cordova-plugin-dialogs" source="npm"/>
+    <plugin name="cordova-plugin-exitapp2" source="npm"/>
 </widget>
