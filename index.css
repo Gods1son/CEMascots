@@ -135,6 +135,57 @@ body{
     height: 99vh;
 }
 
+#infoButton{
+	background: white;
+    position: absolute;
+    z-index: 99;
+    top: 32%;
+    right: 0%;
+    writing-mode: vertical-rl;
+    padding: 10px 0;
+    letter-spacing: 3px;
+    font-weight: 900;
+    font-size: 18px;
+    border: 2px ridge black;
+	cursor:pointer;
+}
+
+#info{
+	position: absolute;
+    background: white;
+    padding: 0px;
+    right: 6%;
+    height: 100%;
+    width: 94%;
+    border-radius: 5%;
+    overflow: auto;
+}
+
+#infoText{
+	padding:10px;
+	line-height: 1.8em;
+}
+
+.hide{
+	display:none;
+}
+
+#closeTop{
+	text-align: right;
+    padding: 5px 5px 0 5px;
+    color: red;
+    font-weight: 900;
+    font-size: 1.5em;
+}
+
+#closeX{
+	border: 1px solid red;
+    border-radius: 50%;
+    padding: 3px;
+    background: red;
+    color: white;
+}
+
 .menuButton
 {
     font-weight: 700;
