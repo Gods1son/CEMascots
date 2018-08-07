@@ -187,13 +187,16 @@ function fillContentWithCategory(theCategory,start){
         setTimeout(function(){
             $("#theImage").show();
             $(".buttonHolder").eq(0).show();
-             $("#theImage").addClass("animated animNorm zoomIn");
+             //$("#theImage").addClass("animated animNorm zoomIn");
+			 $(".imgHolder").eq(0).addClass("animated animNorm zoomIn");
+			 $("info").addClass("hide");
            $(".buttonHolder").eq(0).addClass("animated animNorm bounceInDown");
         },100)
           // $("#theImage").addClass("animated animNorm zoomIn");
           // $(".buttonHolder").eq(0).addClass("animated animNorm bounceInDown");
 		}else{
-		 	$("#theImage").removeClass("animated animNorm zoomIn");
+			$(".imgHolder").eq(0).removeClass("animated animNorm zoomIn");
+		 	//$("#theImage").removeClass("animated animNorm zoomIn");
 			$(".buttonHolder").eq(0).removeClass("animated animNorm bounceInDown");
 			chosenCatLevel = parseInt(chosenCatLevel) + 1;
 			//var reversedPeople = parseInt(people.slice().reverse().findIndex(b => b.category === theCategory));
@@ -265,6 +268,7 @@ function fillContentAll(){
             $("#theImage").show();
             $(".buttonHolder").eq(0).show();
              $("#theImage").addClass("animated animNorm zoomIn");
+			 $("#info").addClass("hide");
            $(".buttonHolder").eq(0).addClass("animated animNorm bounceInDown");
         },100)
           // $("#theImage").addClass("animated animNorm zoomIn");
@@ -273,8 +277,9 @@ function fillContentAll(){
 
 //method that decides if there is category or not
 function fillContent(theCategory){
-    
-        $("#theImage").removeClass("animated animNorm zoomIn");
+		$(".imgHolder").eq(0).removeClass("animated animNorm zoomIn");
+		$("#info").addClass("hide");
+        //$("#theImage").removeClass("animated animNorm zoomIn");
         $(".buttonHolder").eq(0).removeClass("animated animNorm bounceInDown");
         if(theCategory == "" || theCategory == undefined){
 		fillContentAll();
@@ -390,5 +395,15 @@ function shuffle(array) {
 
 function goToChoose(){
     window.location.href = "choose.html";
+}
+
+function showInfo(){
+	var info = people[chosenCatLevel].image;
+	$("#infoText").text(info);
+	$("#info").toggleClass("animated animNorm zoomIn hide");
+}
+
+function closeInfoText(){
+	$("#info").toggleClass("animated animNorm zoomIn hide");
 }
 
