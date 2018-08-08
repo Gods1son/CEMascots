@@ -312,7 +312,8 @@ function checkAnswer(button) {
     var right = $(button).attr("data-correct");
     if(right == "true"){
 	$(button).off("click");
-    	$(button).addClass("correct");
+    	//$(button).addClass("correct");
+		$("#winImage").toggleClass("hide");
     	if (soundStatus == true) { playAudio("correctAudio"); }
 		//determine if its all level or everything
 		if(chooseCategory != ""){
@@ -364,6 +365,7 @@ function checkAnswer(button) {
         animDelay = 500;
         setTimeout(function () {
         	// $(button).removeClass("correct");
+			$("#winImage").toggleClass("hide");
         	fillContent(chooseCategory);
         	animDelay = 1000;
         }, animDelay);
@@ -398,7 +400,7 @@ function goToChoose(){
 }
 
 function showInfo(){
-	var info = people[chosenCatLevel].image;
+	var info = people[chosenCatLevel].info;
 	$("#infoText").text(info);
 	$("#info").toggleClass("animated animNorm zoomIn hide");
 }
