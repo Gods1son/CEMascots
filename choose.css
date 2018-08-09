@@ -46,4 +46,64 @@
     margin: 20px auto;
     text-align: -webkit-center;
 }
- 
+
+#overlay
+{
+	color: black;
+    border: 2px groove white;
+    width: 85vw;
+    left: 7%;
+    position: absolute;
+    top: 25%;
+    background: whitesmoke;
+    display:none;	
+} 
+
+#overlayHead
+{
+	padding: 5px 10px 2px 10px;
+    border-bottom: 2px solid black;
+}
+
+#overlayBody
+{
+	padding: 10px;
+    font-size: 1.2em;
+    line-height: 1.7em;	
+}
+
+.dim
+{
+	opacity:0.3;	
+}
+
+#overlayBottom
+{
+	border-top: 2px solid;	
+}
+
+.overlayClose
+{
+	float: right;
+    margin: 10px;
+    background: crimson;
+    padding: 5px 20px;
+    color: white;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    border: none;
+    box-shadow: 2px 3px 6px 1px grey;	
+}
+
+.showAgain
+{
+	float: left;
+    margin: 10px;
+    font-size: 1.3em;	
+}
+
+.showAgain label
+{
+	margin-left: 5px;	
+}
