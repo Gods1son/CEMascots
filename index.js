@@ -159,16 +159,7 @@ function fillContentWithCategory(theCategory,start){
 		}
 		chosenCatLevel = parseInt(chosenCatLevel);
 		if(chosenCatLevel == people.length){
-			/*var startAgain = confirm(theCategory + " category completed, Do you want to start again?");
-				if(startAgain){
-					localStorage.removeItem(theCategory);
-					localStorage.removeItem(theCategory + "Total");
-                    localStorage.removeItem(theCategory + "TotalGrade");
-					window.location.href = "index.html?"+theCategory;
-				   }else{
-					   window.location.href = "choose.html";
-					   return;
-				   }*/
+			
 			resetLevelDialog(theCategory);
 			return;
 		}
@@ -192,30 +183,16 @@ function fillContentWithCategory(theCategory,start){
 			 $("info").addClass("hide");
            $(".buttonHolder").eq(0).addClass("animated animNorm bounceInDown");
         },100)
-          // $("#theImage").addClass("animated animNorm zoomIn");
-          // $(".buttonHolder").eq(0).addClass("animated animNorm bounceInDown");
+          
 		}else{
 			$(".imgHolder").eq(0).removeClass("animated animNorm zoomIn");
-		 	//$("#theImage").removeClass("animated animNorm zoomIn");
+		 	
 			$(".buttonHolder").eq(0).removeClass("animated animNorm bounceInDown");
 			chosenCatLevel = parseInt(chosenCatLevel) + 1;
-			//var reversedPeople = parseInt(people.slice().reverse().findIndex(b => b.category === theCategory));
-			//var count = people.length - 1;
-			//var finalIndex = count - reversedPeople;
+			
              finalIndex = findLast(theCategory);
 			 if(finalIndex < chosenCatLevel){
-				/*var startAgain = confirm(theCategory + " category completed, Do you want to start again?");
-				if(startAgain){
-					localStorage.removeItem(theCategory);
-					localStorage.removeItem(theCategory + "Total");
-                    localStorage.removeItem(theCategory + "TotalGrade");
-					//window.location.href = "index.html?"+theCategory;
-                    fillContent(theCategory);
-                    return;
-				   }else{
-					   window.location.href = "choose.html";
-					   return;
-				   }*/
+				
 			 	resetLevelDialog(theCategory);
 			 	return;
 			}
@@ -237,19 +214,7 @@ function fillContentAll(){
 		}	
 		level = parseInt(level);
 	if(level == people.length){
-		/*var startAgain = confirm("Game completed, Do you want to start again?");
-			if(startAgain){
-				localStorage.removeItem(levelName);
-				localStorage.removeItem(levelName + "Total");
-                localStorage.removeItem(levelName + "TotalGrade");
-				//window.location.href = "index.html";
-                fillContent("");
-                return;
-			}else{
-				window.location.href = "choose.html";
-				return;
-				}
-			*/
+		
 		resetLevelDialog(levelName);
 		return;
 	}
@@ -271,8 +236,7 @@ function fillContentAll(){
 			 $("#info").addClass("hide");
            $(".buttonHolder").eq(0).addClass("animated animNorm bounceInDown");
         },100)
-          // $("#theImage").addClass("animated animNorm zoomIn");
-          // $(".buttonHolder").eq(0).addClass("animated animNorm bounceInDown");
+          
 }
 
 //method that decides if there is category or not
