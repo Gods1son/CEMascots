@@ -6,6 +6,7 @@
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <script src="people.js"></script>
     <link rel="stylesheet" href="choose.css">
+	<link rel="stylesheet" href="anim.css">
 	<style>
 		.closeButton
 		{
@@ -71,6 +72,19 @@
 			</div>
 		</button> 
     </div>
+
+	<div id="overlay">
+		<div id="overlayHead">
+			<h2>Superstar Number 1s</h2>
+		</div>
+		<div id="overlayBody">
+			<span>How well do you know our superstar number 1s...Our Pastors, Actors, Musicians and rhema words makes us a unique nation</span>
+		</div>
+		<div id="overlayBottom">
+			<div class="showAgain"><input type="checkbox" id="noWelcome"><label for="noWelcome">Don't show again</label></div>
+			<button class="overlayClose" onclick="closeWelcome()">Close</button>
+		</div>
+	</div>
     <script>
     	var PastorsTotalNumber = 0;
     	var MusiciansTotalNumber = 0;
@@ -139,10 +153,9 @@
     			localStorage.removeItem(level + "TotalGrade");
     			window.location.href = "index.html" + direct;
     		} else {
-    			//window.location.href = "choose.html";
+    			
     			var direct = level == levelName ? "" : "?" + level;
-    			//window.location.href = "index.html" + direct;
-    			//window.reload();
+    			
     			return;
     		}
     	}
@@ -154,15 +167,7 @@
 			var chosenCatLevel = localStorage.getItem(cat);
 			if (chosenCatLevel != null) {
 				if (chosenCatLevel == people.length) {
-					/*var startAgain = confirm("Game completed, Do you want to start again?");
-					if(startAgain){
-					localStorage.removeItem("MascotsLevel");
-					localStorage.removeItem("MascotsLevel" + "Total");
-					localStorage.removeItem("MascotsLevel" + "TotalGrade");
-					window.location.href = "index.html";
-					}else{
-					return;
-					}*/
+					
 					resetLevelDialog(levelName);
 					return;
 				}
@@ -172,23 +177,14 @@
 		}
 			var chosenCatLevel = localStorage.getItem(cat);
 			if (chosenCatLevel != null) {
-				//var reversedPeople = parseInt(people.slice().reverse().findIndex(b => b.category === cat));
-				//var count = people.length - 1;
-				//var finalIndex = count - reversedPeople;
+				
 				var finalIndex = findLast(cat);
 				if (finalIndex < chosenCatLevel) {
-					/*var startAgain = confirm(cat + " category completed, Do you want to start again?");
-					if(startAgain){
-					localStorage.removeItem(cat);
-					localStorage.removeItem(cat + "Total");
-					localStorage.removeItem(cat + "TotalGrade");
-					window.location.href = "index.html?"+cat;
-					}else{return;}
-					*/
+					
 					resetLevelDialog(cat);
 					return;
 				}
-				//else { window.location.href = "index.html?" + cat; }
+				
 			}
 				window.location.href = "index.html?"+cat;
            }
@@ -197,7 +193,8 @@
            	var AllLevels = checkValue("MascotsLevelTotal");
            	var MusiciansLevels = checkValue("MusiciansTotal");
            	var PastorsLevels = checkValue("PastorsTotal");
-		var themeofyearLevels = checkValue("themeofyearTotal");
+           	var themeofyearLevels = checkValue("themeofyearTotal");
+           	showWelcome();
 
            });
 
@@ -260,7 +257,31 @@
                 }
             }
             return spot;
-        }
+           }
+
+           function showWelcome() {
+           	var hide = localStorage.getItem("hideWelcome");
+           	if (hide != undefined && hide == "true") {
+           		return;
+			}
+           	$(".buttonHolder2").addClass("dim");
+           	$("#overlay").show();
+           	$("#overlay").addClass("animated animNorm slideInDown");
+           }
+
+           function closeWelcome() {
+           	var check = $("#noWelcome").is(":checked");
+           	if (check == true) {
+           		localStorage.setItem("hideWelcome", "true");
+			}
+           	$("#overlay").removeClass("animated animNorm slideInDown");
+           	$("#overlay").addClass("animated animNorm slideOutLeft");
+           	setTimeout(function () {
+           		$(".buttonHolder2").removeClass("dim");
+           		$("#overlay").removeClass("animated animNorm slideOutLeft");
+           		$("#overlay").hide();
+           	}, 1000);
+		   }
 	</script>
 </body>
 </html>
