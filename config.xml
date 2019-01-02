@@ -19,5 +19,4 @@
     <preference name="orientation" value="portrait"/>
     <plugin name="cordova-plugin-dialogs" source="npm"/>
     <plugin name="cordova-plugin-exitapp" source="npm"/>
-    <plugin name="cordova-sqlite-storage" source="npm"/>
 </widget>
