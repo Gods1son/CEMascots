@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+    <script src="jquery.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script src="people.js"></script>
+	<style>
+		
+	</style>
+</head>
+<body>
+    <div class="buttonHolder2">
+	    <button type="button" onclick="createTable()">Create Table</button>
+      <button type="button" onclick="loadData()">Load Data</button>
+      <button type="button" onclick="display()">Display Data</button>
+      <button type="button" onclick="clearCont()">Clear</button>
+    </div>
+    
+    <div id="cont" style="background:white;color:black;"></div>
+	<div id="overlay">
+		<div id="overlayHead">
+			<h2>Superstar Number 1s</h2>
+		</div>
+		<div id="overlayBody">
+			<span>How well do you know our superstar number 1s...Our Pastors, Actors, Musicians and rhema words makes us a unique nation</span>
+		</div>
+		<div id="overlayBottom">
+			<div class="showAgain"><input type="checkbox" id="noWelcome"><label for="noWelcome">Don't show again</label></div>
+			<button class="overlayClose" onclick="closeWelcome()">Close</button>
+		</div>
+	</div>
+    <script>
+    	var db = null;
+      document.addEventListener('deviceready', function() {
+          db = window.sqlitePlugin.openDatabase({
+          name: 'my.db',
+          location: 'default',
+        });
+      });
+      
+      function createTable(){
+        db.transaction(function(tx) {
+          tx.executeSql('CREATE TABLE IF NOT EXISTS People (image, category, info, optionA, optionB, optionC, optionD, optionE)');
+          tx.executeSql('CREATE TABLE IF NOT EXISTS Stats (Key, Value)');
+          }, function(error) {
+            alert('Error');
+          }, function() {
+            alert('Created Table');
+          });
+      }
+      
+      function loadData(){
+        db.transaction(function(tx) {
+          for(var i = 0; i < people.length; i++){
+            var data = [];
+            data.push(people[i].image);
+            data.push(people[i].category);
+            data.push(people[i].info);
+            data.push(people[i].options[0]);
+            data.push(people[i].options[1]);
+            data.push(people[i].options[2]);
+            data.push(people[i].options[3]);
+            data.push(people[i].options[4]);
+          }
+          tx.executeSql('INSERT INTO People VALUES (?,?,?,?,?,?,?,?)', data);
+          }, function(error) {
+            //alert('Error');
+          }, function() {
+            //alert('Created Table');
+          });
+      }
+      
+      function display(){
+          db.transaction(function(tx) {
+            tx.executeSql('SELECT * FROM People', [], function(tx, rs) {
+               var data = rs.rows.item;
+               for(var i = 0; i < data.length; i++){
+                  var d = data[i].image;
+                  var p = $("#cont").html();
+                  $("#cont").html(p + "<br>" + d);
+               }
+            }, function(tx, error) {
+                alert('error');
+            });
+         });
+      }
+      
+      function clearCont(){
+        $("#cont").html("");
+      }
+	</script>
+</body>
+</html>
