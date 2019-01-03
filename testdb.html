@@ -45,8 +45,8 @@
       
       function createTable(){
         db.transaction(function (tx) {
-            tx.executeSql("CREATE TABLE IF NOT EXISTS People(ID INTEGER PRIMARY KEY ASC, image TEXT UNIQUE, category TEXT, info TEXT, optionA TEXT, optionB TEXT, optionC TEXT, optionD TEXT, optionE TEXT)",[], null, onError); 
-            tx.executeSql("CREATE TABLE IF NOT EXISTS Stats(ID INTEGER PRIMARY KEY ASC, Key TEXT UNIQUE, Value INTEGER)",[], null, onError); 
+            tx.executeSql("CREATE TABLE IF NOT EXISTS People(ID INTEGER PRIMARY KEY ASC, image TEXT UNIQUE, category TEXT, info TEXT, optionA TEXT, optionB TEXT, optionC TEXT, optionD TEXT, optionE TEXT)",[], onSuccess, onError); 
+            tx.executeSql("CREATE TABLE IF NOT EXISTS Stats(ID INTEGER PRIMARY KEY ASC, Key TEXT UNIQUE, Value INTEGER)",[], onSuccess, onError); 
           })
       }
 	    
@@ -97,13 +97,16 @@
             data.push(people[i].options[3]);
             data.push(people[i].options[4]);
             tx.executeSql('INSERT INTO People VALUES (?,?,?,?,?,?,?,?)', data);
+	     if(i == people.length - 1){
+		   alert('Created Table');
+                    loadCategories();
+		}
           }
           
           }, function(error) {
-            //alert('Error');
+            alert('Error');
           }, function() {
-            //alert('Created Table');
-            loadCategories();
+            
           });
       }
         
