@@ -37,7 +37,6 @@
     <script>
     	var db = null;
       $(document).ready(function(){
-          db = openDatabase('CE', '1.0', 'CEMascots', 5 * 1024 * 1024);
           db = openDatabase("CE", "", "CE Mascot",  5 * 1024 * 1024);
                 alert('db successfully opened or created');
                 createTable();
@@ -76,11 +75,11 @@
             })
       }
       
-    function onSuccess(msg){
-        alert(msg);
+    function onSuccess(msg, err){
+        alert("Table Created");
     }  
         
-    function onError(msg, err){
+    function onError(msg){
         alert(msg);
     } 
         
@@ -103,10 +102,10 @@
 		}
           }
           
-          }, function(error) {
-            alert('Error');
-          }, function() {
-            
+          }, function(tx, rs) {
+            alert("Loaded Data");
+          }, function(err) {
+             alert("error loading")
           });
       }
         
@@ -126,7 +125,7 @@
                     $("#cont").append(newBut);
                     }
                 }
-            });
+            }, onError);
         });
         
     }
