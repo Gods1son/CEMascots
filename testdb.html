@@ -45,16 +45,16 @@
       function createTable(){
         db.transaction(function (tx) {
             tx.executeSql("CREATE TABLE IF NOT EXISTS People(ID INTEGER PRIMARY KEY ASC, image TEXT UNIQUE, category TEXT, info TEXT, optionA TEXT, optionB TEXT, optionC TEXT, optionD TEXT, optionE TEXT)",[], null, onError); 
-            tx.executeSql("CREATE TABLE IF NOT EXISTS Stats(ID INTEGER PRIMARY KEY ASC, Key TEXT UNIQUE, Value INTEGER)",[], loadData, onError); 
+            tx.executeSql("CREATE TABLE IF NOT EXISTS Stats(ID INTEGER PRIMARY KEY ASC, Key TEXT UNIQUE, Value INTEGER)",[], null, onError); 
           })
       }
 	    
     function dropTable(){
         db.transaction(function (tx) {
-            tx.executeSql("DROP TABLE People)",[], null, onError); 
-            tx.executeSql("Drop Table Stats)",[], null, onError); 
-          })
-      }
+  	     tx.executeSql('DROP TABLE People');
+	     tx.executeSql('DROP TABLE Stats');
+	});
+     }
 	    
    function updateTable(){
         db.transaction(function (tx) {
