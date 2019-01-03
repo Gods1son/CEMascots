@@ -12,7 +12,8 @@
 <body>
     <div class="buttonHolder2">
       <button type="button" onclick="createTable()">Create Table</button>
-     <button type="button" onclick="dropTable()">Drop Table</button>
+     <button type="button" onclick="dropTablePeople()">Drop Table People</button>
+     <button type="button" onclick="dropTableStats()">Drop Table Stats</button>
       <button type="button" onclick="loadData()">Load Data</button>
       <button type="button" onclick="displayPeople()">Display People</button>
       <button type="button" onclick="updateTable()">Update Stats</button>
@@ -49,11 +50,24 @@
           })
       }
 	    
-    function dropTable(){
-        db.transaction(function (tx) {
-  	     tx.executeSql('DROP TABLE People');
-	     tx.executeSql('DROP TABLE Stats');
-	});
+    function dropTablePeople(){
+        db.transaction(function(transaction) {
+ 		var executeQuery = "DROP TABLE IF EXISTS People";
+ 		transaction.executeSql(executeQuery, [],
+ 			function(tx, result) {alert('Table deleted successfully.');},
+ 			function(error){alert('Error occurred while droping the table.');}
+ 			);
+ 		});
+     }
+	    
+   function dropTableStats(){
+        db.transaction(function(transaction) {
+ 		var executeQuery = "DROP TABLE IF EXISTS Stats";
+ 		transaction.executeSql(executeQuery, [],
+ 			function(tx, result) {alert('Table deleted successfully.');},
+ 			function(error){alert('Error occurred while droping the table.');}
+ 			);
+ 		});
      }
 	    
    function updateTable(){
