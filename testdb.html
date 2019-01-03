@@ -11,9 +11,12 @@
 </head>
 <body>
     <div class="buttonHolder2">
-	    <button type="button" onclick="createTable()">Create Table</button>
+      <button type="button" onclick="createTable()">Create Table</button>
+     <button type="button" onclick="dropTable()">Drop Table</button>
       <button type="button" onclick="loadData()">Load Data</button>
-      <button type="button" onclick="display()">Display Data</button>
+      <button type="button" onclick="displayPeople()">Display People</button>
+      <button type="button" onclick="updateTable()">Update Stats</button>
+      <button type="button" onclick="displayStats()">Display Stats</button>
       <button type="button" onclick="clearCont()">Clear</button>
     </div>
     
@@ -41,9 +44,22 @@
       
       function createTable(){
         db.transaction(function (tx) {
-            tx.executeSql("CREATE TABLE IF NOT EXISTS People(ID INTEGER PRIMARY KEY ASC, image TEXT, category TEXT, info TEXT, optionA TEXT, optionB TEXT, optionC TEXT, optionD TEXT, optionE TEXT)",[], null, onError); 
+            tx.executeSql("CREATE TABLE IF NOT EXISTS People(ID INTEGER PRIMARY KEY ASC, image TEXT UNIQUE, category TEXT, info TEXT, optionA TEXT, optionB TEXT, optionC TEXT, optionD TEXT, optionE TEXT)",[], null, onError); 
             tx.executeSql("CREATE TABLE IF NOT EXISTS Stats(ID INTEGER PRIMARY KEY ASC, Key TEXT UNIQUE, Value INTEGER)",[], loadData, onError); 
           })
+      }
+	    
+    function dropTable(){
+        db.transaction(function (tx) {
+            tx.executeSql("DROP TABLE People)",[], null, onError); 
+            tx.executeSql("Drop Table Stats)",[], null, onError); 
+          })
+      }
+	    
+   function updateTable(){
+        db.transaction(function (tx) {
+            tx.executeSql("UPDATE Stats SET Value += 5 Where Key = 'PastorsLevel'",[], null, null); 
+            })
       }
       
     function onSuccess(msg){
@@ -118,12 +134,27 @@
             alert(text);
         }
       
-      function display(){
+      function displayPeople(){
           db.transaction(function(tx) {
             tx.executeSql('SELECT * FROM People', [], function(tx, rs) {
                var data = rs.rows;
                for(var i = 0; i < data.length; i++){
                   var d = data[i].image;
+                  var p = $("#cont").html();
+                  $("#cont").html(p + "<br>" + d);
+               }
+            }, function(tx, error) {
+                alert('error');
+            });
+         });
+      }
+	    
+	function displayStats(){
+          db.transaction(function(tx) {
+            tx.executeSql('SELECT * FROM Stats', [], function(tx, rs) {
+               var data = rs.rows;
+               for(var i = 0; i < data.length; i++){
+                  var d = data[i].Key + " " + data[i].Value;
                   var p = $("#cont").html();
                   $("#cont").html(p + "<br>" + d);
                }
