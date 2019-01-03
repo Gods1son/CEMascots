@@ -32,21 +32,28 @@
 	</div>
     <script>
     	var db = null;
-      document.addEventListener('deviceready', function() {
-          db = openDatabase('CE', '1.0', 'CE', 5 * 1024 * 1024); 
+      $(document).ready(function(){
+          db = openDatabase('CE', '1.0', 'CEMascots', 5 * 1024 * 1024);
+          db = openDatabase("CE", "", "CE Mascot",  5 * 1024 * 1024);
+                alert('db successfully opened or created');
+                createTable();
       });
       
       function createTable(){
-        db.transaction(function(tx) {
-          tx.executeSql('CREATE TABLE IF NOT EXISTS People (image, category, info, optionA, optionB, optionC, optionD, optionE)');
-          tx.executeSql('CREATE TABLE IF NOT EXISTS Stats (Key, Value)');
-          }, function(error) {
-            alert('Error');
-          }, function() {
-            alert('Created Table');
-          });
+        db.transaction(function (tx) {
+            tx.executeSql("CREATE TABLE IF NOT EXISTS People(ID INTEGER PRIMARY KEY ASC, image TEXT, category TEXT, info TEXT, optionA TEXT, optionB TEXT, optionC TEXT, optionD TEXT, optionE TEXT)",[], null, onError); 
+            tx.executeSql("CREATE TABLE IF NOT EXISTS Stats(ID INTEGER PRIMARY KEY ASC, Key TEXT UNIQUE, Value INTEGER)",[], loadData, onError); 
+          })
       }
       
+    function onSuccess(msg){
+        alert(msg);
+    }  
+        
+    function onError(msg, err){
+        alert(msg);
+    } 
+        
       function loadData(){
         db.transaction(function(tx) {
           for(var i = 0; i < people.length; i++){
@@ -59,19 +66,62 @@
             data.push(people[i].options[2]);
             data.push(people[i].options[3]);
             data.push(people[i].options[4]);
+            tx.executeSql('INSERT INTO People VALUES (?,?,?,?,?,?,?,?)', data);
           }
-          tx.executeSql('INSERT INTO People VALUES (?,?,?,?,?,?,?,?)', data);
+          
           }, function(error) {
             //alert('Error');
           }, function() {
             //alert('Created Table');
+            loadCategories();
           });
       }
+        
+    function loadCategories(){
+        db.transaction(function (tx) {
+        tx.executeSql("SELECT Distinct Category FROM People", [], function(tx, results) {
+            if(results.rows.length > 0) {
+                for(var i = 0; i < results.rows.length; i++) {
+                    //var newBut = $('<button>', {class: 'spinner', text: results.rows.item(i).category, })
+                    var newBut = $("<button type='button' id='category' onclick='action(this)' data-cat='"  + results.rows.item(i).category + "'>" + results.rows.item(i).category + "</button");
+                    $(newBut).html(results.rows.item(i).category);
+                    //createScorer(results.rows.item(i).category);
+                    var level = results.rows.item(i).category + "Level";
+                    var score = results.rows.item(i).category + "Score";
+                    tx.executeSql("INSERT INTO Stats(Key, Value) VALUES(?,?)", [level, 0], null, null);
+                    tx.executeSql("INSERT INTO Stats(Key, Value) VALUES(?,?)", [score, 0], null, null);
+                    $("#cont").append(newBut);
+                    }
+                }
+            });
+        });
+        
+    }
+        
+    function createScorer(key){
+        db.transaction(function (tx) {
+           var level = key + "Level";
+           var score = key + "Score";
+            var query = "INSERT OR IGNORE INTO Stats(Key, Value) VALUES(" + level + ", 0)";
+            var query2 = "INSERT OR IGNORE INTO Stats(Key, Value) VALUES(" + score + ", 0)";
+           //var query = "INSERT INTO Stats(Key, Value) SELECT " + level + ", 0 WHERE NOT EXISTS(SELECT 1 FROM Stats WHERE Key = '" + level + "')";
+        //var query2 = "INSERT INTO Stats(Key, Value) SELECT " + score + ", 0 WHERE NOT EXISTS(SELECT 1 FROM Stats WHERE Key = '" + score + "')";
+          //tx.executeSql(query);
+          //tx.executeSql(query2); 
+            tx.executeSql('INSERT INTO Stats VALUES (?,?)', [level, 0]);
+            tx.executeSql('INSERT INTO Stats VALUES (?,?)', [level, 0]);
+        })
+    }
+        
+        function action(but){
+            var text = $(but).attr("data-cat");
+            alert(text);
+        }
       
       function display(){
           db.transaction(function(tx) {
             tx.executeSql('SELECT * FROM People', [], function(tx, rs) {
-               var data = rs.rows.item;
+               var data = rs.rows;
                for(var i = 0; i < data.length; i++){
                   var d = data[i].image;
                   var p = $("#cont").html();
